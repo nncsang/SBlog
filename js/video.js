@@ -52,7 +52,7 @@ function mirror() {
   
   if (onMirror == false){
     video.style.cssText = "-webkit-box-reflect: below 0px -webkit-linear-gradient(top, transparent, transparent 55%, white) 0 fill stretch;";
-    video.style.marginBottom = "170px";
+    video.style.marginBottom = "180px";
   }
   else{
     video.style.webkitBoxReflect = "none";
