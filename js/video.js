@@ -87,6 +87,7 @@ var videoLabel;
 
 function initVideoPlayer()
 {
+  
   protocol = window.location.protocol;
   hostname = window.location.hostname;
 
@@ -199,7 +200,7 @@ function shoot(){
       };
   snapshots.unshift(canvas);
   output.innerHTML = '';
-  for(var i=0; i<4; i++){
+  for(var i=0; i<1; i++){
       output.appendChild(snapshots[i]);
   }
 }

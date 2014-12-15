@@ -797,3 +797,19 @@ video {
    height:auto; 
 }
 
+.rc{
+    height:500;
+    width: 500px;
+    -moz-border-radius:40px;
+    border-radius:40px;
+    overflow:hidden;
+    -webkit-mask-image: url(http://f.cl.ly/items/1e181Q0e3j0L3L3z2j3Z/rect.svg)
+}
+
+.container_video {
+    width:240px;
+    height:240px;
+    overflow:hidden;
+    border-radius: 120px 120px 120px 120px;
+}
+

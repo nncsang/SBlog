@@ -30,6 +30,10 @@
 		<link rel="stylesheet" href="css/style-desktop.css" />
 		<link rel="stylesheet" media="only screen and (max-device-width: 510px)" href="css/style-mobile.css" />
 	</noscript>
+
+	<!-- Bubble -->
+	<style> .target { mask: url("css/mask.svg#c1"); -webkit-mask: url("css/mask.svg"); } </style>
+
 </head>
 
 <body onload="init(), getLocation(), initVideoPlayer()">
@@ -141,7 +145,10 @@
 								</header>
 
 								<video id="video" class="video full" controls>
+  									<!-- <source src="video/we_wish_you_a_merry_christmas.mp4" type="video/mp4"> -->
+  									<source src="video/we_wish_you_a_merry_christmas.webm" type="video/webm">
   									<source src="video/we_wish_you_a_merry_christmas.mp4" type="video/mp4">
+  									<source src="video/we_wish_you_a_merry_christmas.ogv" type="video/ogv">
   									
   									Your browser does not support HTML5 video.
 								</video>
@@ -182,6 +189,20 @@
 									to <input id="endTime" type="text"> 			
 									<button onclick="extractVideo()" class="button-flat-primary" style="margin-bottom:10px;padding:0px;">Extract</button>
 									<video id="secondVideo" controls autoplay class="video full"> </video>
+								</section>
+
+							</article>
+
+							<article>
+								<section>
+									<h4 class="title">Bubble video</h4>
+									<div class="container_video">
+										<video width="416px" controls poster="images/poster/oceans.png">
+											<source src="video/oceans.webm" type="video/webm">
+											<source src="video/oceans.mp4" type="video/mp4">
+											<source src="video/oceans.ogv" type="video/ogv">
+										</video>
+									</div>
 								</section>
 							</article>
 
