@@ -3,6 +3,7 @@ var onMirror = false;
 function playVideo() {
   var url = document.getElementById('videoUrl').value;
   video.src = url;
+  video.load();
   video.play();
 }
 
@@ -136,8 +137,11 @@ function initVideoPlayer()
 }
   function onend(e){
     iCurrentVideo++;
-    var iNextVideo = iCurrentVideo%3;
-    playlist.src=links[iCurrentVideo%3].href;
+    iCurrentVideo = iCurrentVideo%3;
+    var iNextVideo = iCurrentVideo;
+
+    playlist.src=links[iCurrentVideo].href;
+    videoLabel.innerHTML = "Playing: " + videoList[iCurrentVideo].name;
     playlist.load();
     playlist.play();
   }
@@ -161,6 +165,8 @@ function initVideoPlayer()
     playlist.src = filename;
     playlist.load();
     playlist.play();
+
+    videoLabel.innerHTML = "Playing: " + videoList[iCurrentVideo].name;
   }
 
 
