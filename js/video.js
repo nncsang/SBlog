@@ -14,7 +14,7 @@ function jumpVideo() {
 
 function rotateVideo() {
   var angle = document.getElementById('videoAngle').value;
-  console.log(angle);
+  
   // video.style['MozTransform']='rotate('+angle+'deg)';
   rotateSentence = "-moz-transform:rotate("+angle +"deg);-webkit-transform:rotate("+angle +"deg);-o-transform:rotate("+angle +"deg);-ms-transform:rotate("+angle +"deg);transform:rotate("+angle +"deg);"
   video.style.cssText = rotateSentence;
@@ -167,7 +167,7 @@ function initVideoPlayer()
       if (webm)
         ext = ".webm";
 
-      console.log(ext);
+      
   }
 }
   function onend(e){
