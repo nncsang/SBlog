@@ -67,18 +67,21 @@ var iCurrentVideo;
 var links;
 var videoList = [
   {
-    name: "video/oceans.webm", 
+    name: "video/oceans", 
     id: 0
   }, 
   {
-    name: "video/sintel_trailer.webm", 
+    name: "video/sintel_trailer", 
     id: 1
   },
   {
-    name: "video/iceage4.ogv", 
+    name: "video/we_wish_you_a_merry_christmas", 
     id: 2
   }
 ];
+
+var ext = ".";
+
 var playlist;
 var protocol;
 var hostname;
@@ -87,7 +90,7 @@ var videoLabel;
 
 function initVideoPlayer()
 {
-  
+
   protocol = window.location.protocol;
   hostname = window.location.hostname;
 
@@ -135,13 +138,44 @@ function initVideoPlayer()
         // Done!
     // });
   };
+
+  var mpeg4, h264, ogg, webm;
+  if ( video.canPlayType ) {
+      // Check for MPEG-4 support
+      mpeg4 = "" !== video.canPlayType( 'video/mp4; codecs="mp4v.20.8"' );
+
+      // Check for h264 support
+      h264 = "" !== ( video.canPlayType( 'video/mp4; codecs="avc1.42E01E"' )
+          || video.canPlayType( 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"' ) );
+
+      // Check for Ogg support
+      ogg = "" !== video.canPlayType( 'video/ogg; codecs="theora"' );
+
+      // Check for Webm support
+      webm = "" !== video.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
+      
+
+      if (mpeg4)
+        ext = ".mp4";
+
+      if (h264)
+        ext = ".mp4";
+
+      if (ogg)
+        ext = ".ogg";
+
+      if (webm)
+        ext = ".webm";
+
+      console.log(ext);
+  }
 }
   function onend(e){
     iCurrentVideo++;
     iCurrentVideo = iCurrentVideo%3;
     var iNextVideo = iCurrentVideo;
 
-    playlist.src=links[iCurrentVideo].href;
+    playlist.src=links[iCurrentVideo].href + ext;
     videoLabel.innerHTML = "Playing: " + videoList[iCurrentVideo].name;
     playlist.load();
     playlist.play();
@@ -163,7 +197,7 @@ function initVideoPlayer()
       }
     }
 
-    playlist.src = filename;
+    playlist.src = filename + ext;
     playlist.load();
     playlist.play();
 
