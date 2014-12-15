@@ -790,3 +790,11 @@
     box-shadow: none;
     -webkit-appearance: none; }
 
+
+.video_circle { 
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+

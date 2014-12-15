@@ -68,6 +68,7 @@ var playlist;
 var protocol;
 var hostname;
 var video;
+var videoLabel;
 
 function initVideoPlayer()
 {
@@ -86,6 +87,12 @@ function initVideoPlayer()
   }
 
   iCurrentVideo = 0;
+
+  videoLabel = document.getElementById('cur_Video_Name');
+
+  playlist.onplay = function() { 
+    videoLabel.innerHTML = "Playing: " + links[iCurrentVideo].href;
+  };
 }
   function onend(e){
     iCurrentVideo++;
