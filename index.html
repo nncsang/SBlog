@@ -2,6 +2,7 @@
 
 <!-- Head -->
 <head>
+	<title>HTML 5 Lab</title>
 	<meta charset="utf-8">
 	<link href="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href="css/font.css" rel="stylesheet" type="text/css" />
@@ -21,6 +22,14 @@
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="js/geolocation.js"></script>
 	<script type="text/javascript" src="js/video.js"></script>
+
+	<noscript>
+		<link rel="stylesheet" href="css/skel-noscript.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-1000px.css" />
+		<link rel="stylesheet" href="css/style-desktop.css" />
+		<link rel="stylesheet" media="only screen and (max-device-width: 510px)" href="css/style-mobile.css" />
+	</noscript>
 </head>
 
 <body onload="init(), getLocation(), initVideoPlayer()">
@@ -32,7 +41,7 @@
 							<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">HTML 5 LAB</a></h1>
-					<span>Designed by NGUYEN Trong Khoa and NGUYEN NGOC CHAU SANG</span>
+					<span>by NGUYEN Trong Khoa and NGUYEN NGOC CHAU SANG</span>
 				</div>		
 			</div>
 		</header>
@@ -98,7 +107,7 @@
 										<br>
 										<div>
 											<h4>Street address:</h4>
-											<input type="text" id="street_address" style="width: 300px"required>
+											<input type="text" id="street_address" style="width: 300px" required>
 											<br>
 											<h4>City:</h4>
 											<input type="text" id="locality" required>
@@ -137,8 +146,13 @@
   									Your browser does not support HTML5 video.
 								</video>
 
+								<button class="button-flat-primary" onclick="shoot()" style="width: 64px;border: solid 2px #ccc;">Capture</button><br/>
+    							<div id="output" style="display: inline-block; top: 4px; position: relative ;border: dotted 1px #ccc; padding: 2px;">
+    								
+    							</div>
+
 								<div>
-									<input type="checkbox" checked="true" onclick="toggleControls()">Show/Hide Control</input>
+									<input type="button" onclick="toggleControls()" value="Show/Hide Control"/>
 									<input type="button" id="reflection-button" onclick="mirror()" value="Mirror the video" />
 								</div>
 
@@ -158,26 +172,17 @@
 									<div>
 										<h4 class="title">Rotate by degree</h4>
 										<input id="videoAngle" type="number"> 
-										<button class="button-flat-primary" onclick="rotateVideo()"style="margin:0px;padding:0px;">Rotate</button>	
+										<button class="button-flat-primary" onclick="rotateVideo()" style="margin:0px;padding:0px;">Rotate</button>	
 									</div>
 								</div>
 
 								<section>
-									<h4 class="title">Extract video by second</h4>
+									<h4 class="title">Extract preview video by second</h4>
 									From <input id="beginTime" type="text"> 
 									to <input id="endTime" type="text"> 			
 									<button onclick="extractVideo()" class="button-flat-primary" style="margin-bottom:10px;padding:0px;">Extract</button>
 									<video id="secondVideo" controls autoplay class="video full"> </video>
 								</section>
-
-								<section>
-									<video id="video" class="video_circle" controls>
-  									<source src="video/we_wish_you_a_merry_christmas.mp4" type="video/mp4">
-  									
-  									Your browser does not support HTML5 video.
-								</video>
-								</section>
-
 							</article>
 
 							<!-- Article 4-->
@@ -209,9 +214,9 @@
 										<source src="video/oceans.webm" type="video/webm">
 									</video>
 									<figcaption style="margin-left: 45px;">
-										<a href="video/oceans.webm"><img src="images/poster/oceans.png"></a>
-										<a href="video/sintel_trailer.webm"><img src="images/poster/sintel_trailer.png"></a>
-										<a href="video/iceage4.ogv"><img src="images/poster/iceage4.png"></a>
+										<a href="video/oceans.webm"><img src="images/poster/oceans.png" alt="Ocean"></a>
+										<a href="video/sintel_trailer.webm"><img src="images/poster/sintel_trailer.png" alt="Sintel trailer"></a>
+										<a href="video/iceage4.ogv"><img src="images/poster/iceage4.png" alt="Ice Age 4"></a>
 									</figcaption>
 								</figure>
 							</article>

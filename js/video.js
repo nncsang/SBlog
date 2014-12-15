@@ -64,6 +64,20 @@ function mirror() {
 
 var iCurrentVideo;
 var links;
+var videoList = [
+  {
+    name: "video/oceans.webm", 
+    id: 0
+  }, 
+  {
+    name: "video/sintel_trailer.webm", 
+    id: 1
+  },
+  {
+    name: "video/iceage4.ogv", 
+    id: 2
+  }
+];
 var playlist;
 var protocol;
 var hostname;
@@ -91,7 +105,33 @@ function initVideoPlayer()
   videoLabel = document.getElementById('cur_Video_Name');
 
   playlist.onplay = function() { 
-    videoLabel.innerHTML = "Playing: " + links[iCurrentVideo].href;
+    videoLabel.innerHTML = "Playing: " + videoList[iCurrentVideo].name;
+  };
+
+  video.loadeddata = function(){
+    // Let's wait another 100ms just in case?
+    // setTimeout(function()
+    // {
+        // Create a canvas element, this is what user sees.
+        alert("Loaded");
+        var canvas = document.createElement("canvas");
+
+        // Set it to same dimensions as video.
+        canvas.width = vid.videoWidth;
+        canvas.height = vid.videoHeight;
+
+        // Put it on page.
+        document.getElementById("first_frame").innerHTML = "";
+        document.getElementById("first_frame").appendChild(canvas);
+
+        // Get the drawing context for canvas.
+        var ctx = canvas.getContext("2d");
+
+        // Draw the current frame of video onto canvas.
+        ctx.drawImage(vid, 0, 0);
+
+        // Done!
+    // });
   };
 }
   function onend(e){
@@ -111,10 +151,9 @@ function initVideoPlayer()
 
     fullname = protocol + '//' + hostname + "/" + filename;
 
-    console.log(fullname);
-    for (var i=0; i<links.length; i++) {
-      if (links[i].href == fullname){
-        iCurrentVideo = i;
+    for (var i=0; i<videoList.length; i++) {
+      if (videoList[i].name == filename){
+        iCurrentVideo = videoList[i].id;
         break;
       }
     }
@@ -123,4 +162,39 @@ function initVideoPlayer()
     playlist.load();
     playlist.play();
   }
+
+
+
+var scaleFactor = 0.25;
+var snapshots = [];
+
+function capture(video, scaleFactor) {
+  if(scaleFactor == null){
+      scaleFactor = 1;
+  }
+  var w = video.videoWidth * scaleFactor;
+  var h = video.videoHeight * scaleFactor;
+  var canvas = document.createElement('canvas');
+      canvas.width  = w;
+      canvas.height = h;
+  var ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, w, h);
+  return canvas;
+} 
+
+/**
+* Invokes the <code>capture</code> function and attaches the canvas element to the DOM.
+*/
+function shoot(){
+  var output = document.getElementById('output');
+  var canvas = capture(video, scaleFactor);
+      canvas.onclick = function(){
+          window.open(this.toDataURL());
+      };
+  snapshots.unshift(canvas);
+  output.innerHTML = '';
+  for(var i=0; i<4; i++){
+      output.appendChild(snapshots[i]);
+  }
+}
   
