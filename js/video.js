@@ -34,7 +34,7 @@ function extractVideo() {
     var link = sources[0].src + '#t=' + start + ',' + end;
   }
   else{
-    var link = videocustom.src + '#t=' + start + ',' + end;
+    var link = sources[0].src + '#t=' + start + ',' + end;
   }
 
   var secondVideo = document.getElementById('secondVideo');
