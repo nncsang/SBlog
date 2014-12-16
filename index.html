@@ -144,7 +144,7 @@
 									<span class="byline">22/12/2014</span>
 								</header>
 
-								<video id="video" class="video full" controls>
+								<video id="video" class="video full" controls style="height: 400px !important; width: 600px !important;">
   									<!-- <source src="video/we_wish_you_a_merry_christmas.mp4" type="video/mp4"> -->
   									<source src="video/we_wish_you_a_merry_christmas.webm" type="video/webm">
   									<source src="video/we_wish_you_a_merry_christmas.mp4" type="video/mp4">
@@ -152,6 +152,10 @@
   									
   									Your browser does not support HTML5 video.
 								</video>
+
+								<div>
+									<canvas id="reflection" style="display:none"></canvas>
+								</div>
 
 								<button class="button-flat-primary" onclick="shoot()" style="width: 64px;border: solid 2px #ccc;">Capture</button><br/>
     							<div id="output" style="display: inline-block; top: 4px; position: relative ;border: dotted 1px #ccc; padding: 2px;">

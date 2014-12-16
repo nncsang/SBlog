@@ -1,6 +1,7 @@
 var onMirror = false;
 
 function playVideo() {
+  video = document.getElementById('video');
   var url = document.getElementById('videoUrl').value;
   video.src = url;
   video.load();
@@ -8,11 +9,13 @@ function playVideo() {
 }
 
 function jumpVideo() {
+  video = document.getElementById('video');
   var time = document.getElementById('videoTime').value;
   video.currentTime = time;
 }
 
 function rotateVideo() {
+  video = document.getElementById('video');
   var angle = document.getElementById('videoAngle').value;
   
   // video.style['MozTransform']='rotate('+angle+'deg)';
@@ -21,6 +24,7 @@ function rotateVideo() {
 }
 
 function extractVideo() {
+  video = document.getElementById('video');
   var start = document.getElementById('beginTime').value;
   var end = document.getElementById('endTime').value;
   
@@ -42,6 +46,7 @@ function extractVideo() {
 }
 
 function toggleControls() {
+  video = document.getElementById('video');
   if (video.hasAttribute("controls")) {
      video.removeAttribute("controls");  
   } else {
@@ -51,16 +56,63 @@ function toggleControls() {
 
 function mirror() {
   
+  video = document.getElementById('video');
+  if (isChrome || isSafari){
   if (onMirror == false){
-    video.style.cssText = "-webkit-box-reflect: below 0px -webkit-linear-gradient(top, transparent, transparent 55%, white) 0 fill stretch;";
-    video.style.marginBottom = "180px";
+      video.style.cssText = "-webkit-box-reflect: below 0px -webkit-linear-gradient(top, transparent, transparent 55%, white) 0 fill stretch;";
+      video.style.marginBottom = "180px";
+    }
+    else{
+      video.style.webkitBoxReflect = "none";
+      video.style.marginBottom = "10px"; 
+    }
+
+    onMirror = !onMirror;
+  }else{
+
+      var context, rctxt, video;
+      reflection = document.getElementById("reflection");
+
+      
+
+      if (onMirror)
+        reflection.style.display = "none";
+      else{
+
+        video.play();
+        
+        reflection.style.display = "block";
+        rctxt = reflection.getContext("2d");
+        //var w = video.videoWidth;
+        //var h = video.videoHeight;
+        var h = 400;
+        var w = 600;
+        
+        reflection.width = w;
+        reflection.height = h;
+        rctxt.translate(0,h);
+        rctxt.scale(1,-1);
+        paintFrame(video, rctxt, w, h);
+
+
+      }
+
+      onMirror = !onMirror;
   }
-  else{
-    video.style.webkitBoxReflect = "none";
-    video.style.marginBottom = "10px"; 
+}
+
+function paintFrame(video, rctxt, w, h) {
+      
+  rctxt.drawImage(video, 0, 0, w , h);
+  rctxt.fill();
+
+  if (video.paused || video.ended) {
+    return;
   }
 
-  onMirror = !onMirror;
+  setTimeout(function () {
+   paintFrame(video, rctxt, w, h);
+  }, 0);
 }
 
 var iCurrentVideo;
@@ -87,9 +139,20 @@ var protocol;
 var hostname;
 var video;
 var videoLabel;
+var isChrome = false;
+var isSafari = false;
 
 function initVideoPlayer()
 {
+  if(navigator.userAgent.indexOf("Chrome") != -1)
+  {
+   isChrome = true;
+  }
+
+  if(navigator.userAgent.indexOf("Safari") != -1)
+  {
+    isSafari = true;
+  }
 
   protocol = window.location.protocol;
   hostname = window.location.hostname;
