@@ -80,7 +80,7 @@ function mirror() {
       else{
 
         video.play();
-        
+
         reflection.style.display = "block";
         rctxt = reflection.getContext("2d");
         //var w = video.videoWidth;
@@ -300,5 +300,18 @@ function shoot(){
   for(var i=0; i<1; i++){
       output.appendChild(snapshots[i]);
   }
+}
+
+function bubbleVideo(){
+  bVideo = document.getElementById('bubbleVideo');
+  bButton = document.getElementById('bubbleVideo');
+  if (bVideo.paused || bVideo.ended) {
+    bVideo.play();
+    bubbleButton.innerHTML = "Pause";
+  }else{
+    bVideo.pause();
+    bubbleButton.innerHTML = "Play";
+  }
+  
 }
   

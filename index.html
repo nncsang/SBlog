@@ -23,12 +23,13 @@
 	<script type="text/javascript" src="js/geolocation.js"></script>
 	<script type="text/javascript" src="js/video.js"></script>
 
+	<link rel="stylesheet" media="only screen and (max-device-width: 510px)" href="css/style-mobile.css" />
 	<noscript>
 		<link rel="stylesheet" href="css/skel-noscript.css" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/style-1000px.css" />
 		<link rel="stylesheet" href="css/style-desktop.css" />
-		<link rel="stylesheet" media="only screen and (max-device-width: 510px)" href="css/style-mobile.css" />
+		
 	</noscript>
 
 	<!-- Bubble -->
@@ -197,18 +198,19 @@
 
 							</article>
 
-							<!-- <article>
+							<article>
 								<section>
 									<h4 class="title">Bubble video</h4>
-									<div class="container_video">
-										<video width="416px" controls poster="images/poster/oceans.png">
+									<div class="target">
+										<video id = "bubbleVideo" width="416px" poster="images/poster/oceans_big.png">
 											<source src="video/oceans.webm" type="video/webm">
 											<source src="video/oceans.mp4" type="video/mp4">
 											<source src="video/oceans.ogv" type="video/ogv">
 										</video>
 									</div>
 								</section>
-							</article> -->
+								<button class="button-flat-primary" id="bubbleButton" onclick="bubbleVideo()" style="width: 64px;border: solid 2px #ccc;margin:0px;">Play</button><br/>
+							</article>
 
 							<!-- Article 4-->
 							<article id="article_playlist">
