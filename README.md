@@ -12,3 +12,9 @@ In this application, we used different kinds of features of HTML5. In particular
 	* Video: you can change content of video by providing URL, jump to an offset in the video, rotate video, display or hide the default controls, mirror the video 
 	* Video jukebox player, or in other words, a series of videos that will be played one after the other, like playing a channel in YouTube. The jukebox can contain only 3 or 4 videos.
 
+IMAGES
+======
+<img src="https://cloud.githubusercontent.com/assets/4307137/10105283/251b6868-63ae-11e5-9918-b789d9d682ec.png" width="97%"></img>
+<img src="https://cloud.githubusercontent.com/assets/4307137/10105290/2a183f3a-63ae-11e5-9380-50d9f6d8afd6.png" width="97%"></img>
+<img src="https://cloud.githubusercontent.com/assets/4307137/10105284/26aa7ad4-63ae-11e5-88b7-bc523a095c9f.png" width="97%"></img>
+<img src="https://cloud.githubusercontent.com/assets/4307137/10105288/28698fae-63ae-11e5-8ba7-a62360a8e8a7.png" width="97%"></img>
