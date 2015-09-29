@@ -14,7 +14,7 @@ In this application, we used different kinds of features of HTML5. In particular
 
 IMAGES
 ======
-<img src="https://drive.google.com/open?id=0Bx_Njs-ZJ0C_Y3ZWajM4VlBHRTQ" width="97%"></img>
+<img src="http://res.cloudinary.com/dppqpdago/image/upload/v1443512359/1_akuqew.png" width="97%"></img>
 <img src="https://cloud.githubusercontent.com/assets/4307137/10105290/2a183f3a-63ae-11e5-9380-50d9f6d8afd6.png" width="97%"></img>
 <img src="https://cloud.githubusercontent.com/assets/4307137/10105284/26aa7ad4-63ae-11e5-88b7-bc523a095c9f.png" width="97%"></img>
 <img src="https://cloud.githubusercontent.com/assets/4307137/10105288/28698fae-63ae-11e5-8ba7-a62360a8e8a7.png" width="97%"></img>
